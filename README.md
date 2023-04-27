@@ -1,92 +1,97 @@
-# full-stack-recruitment-test
+# Ringzero full-stack recruitment test
 
+Thanks for taking the time to do our full-stack coding test. The challenge has two parts:
 
+1. a [task](#task) to create a basic flight results front-end site to show flight prices
 
-## Getting started
+2. some [follow-up questions](./FOLLOW-UP.md)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+---
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+You will be graded based on the following have been met:
 
-## Add your files
+- Your implementation works as described in the [task](#task).
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- Your solution looks like the provided [design](#design).
+
+---
+
+## Prerequisites/Environment Setup
+
+### Installing Node
+
+The full stack test is developed using Node, using the following versions:
+
+**Node:** `LTS/Gallium (^16.19.0)`
+
+**npm:** `^8.19.3`
+
+We recommend using [nvm](https://github.com/nvm-sh/nvm) or [nave](https://github.com/isaacs/nave) to manage your Node environment on **Unix/macOS** systems. If you use **Windows** then we recommend using [nvm-windows](https://github.com/coreybutler/nvm-windows).
+
+To install the correct npm and node version for the project, use `nvm install` or `nave install`.
+
+The full stack test has built-in support for these. Just run `nvm use` or `nave auto` to select the correct Node version.
+
+## Task
+
+We have placed a number of helpful todos inside the code (see `index.js` and `App.jsx`) to help get you started, the main items we are looking for are:
+
+- Fetch flight results from the provided `flights.json` and format them into client readable results.
+
+  - You are not required to serve this separately from the dev server (i.e. `npm start`).
+
+- Use the returned data to display a page of results that matches the given design.
+  - Times should be displayed in 24 hour format.
+
+## Design
+
+We've provided a [design](./designs/results-small.png) for small-screens (480px). Don't worry about tackling larger breakpoints, but **please make sure your solution looks good at 480px in portrait orientation**.
+
+The design shows a look and feel defined in our [styleguide](https://skyscanner.design/). Feel free to import our React components into your project, or lift colours and things directly from the styleguide pages. We also have some auto-generated [sassdoc](https://backpack.github.io/sassdoc/) that may help.
+
+**NB:** You don't have to use our styleguide or our components -- picking colours from the image and rolling your own css to save time is absolutely fine.
+
+For the airline logos, insert the airline id to the following url: `https://logos.skyscnr.com/images/airlines/favicon/{id}.png`
+
+## Client implementation
+
+We'd like you to use [React](https://facebook.github.io/react/). On top of that, use whatever front-end libraries you feel comfortable with.
+
+We've set you up with a build based on [our custom fork](https://github.com/Skyscanner/backpack-react-scripts) of Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app).
+
+We've wired in [Sass](http://sass-lang.com/) with our base stylesheet (`bpk-stylesheets`) + mixins (`bpk-mixins`) for you to get at -- see the [`Header`](./client/src/components/Header/Header.jsx) component for example use.
+
+## Flight results
+
+The provided `flights` `json` will return two collections of different items:
+
+- **Itineraries** - These are the containers for your trips, tying together **Legs**, and **prices**. Prices are offered by an **agent** - an airline or travel agent.
+
+- **Legs** - These are journeys (outbound, return) with **duration**, **stops** and **airlines**.
+
+A good structure to represent trip options would be hierarchical:
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.rznet.com/root/full-stack-recruitment-test.git
-git branch -M main
-git push -uf origin main
+Itineraries
+  Legs
 ```
 
-## Integrate with your tools
+## Running the project
 
-- [ ] [Set up project integrations](https://gitlab.rznet.com/root/full-stack-recruitment-test/-/settings/integrations)
+To startup the frontend client run the following command.
 
-## Collaborate with your team
+- `npm start` - This will start the application for development
+- `npm run build` - Will create a production optimised build
+- `npm test` - Will run the front end tests
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## Submission Guidelines
 
-## Test and Deploy
+- The zip file should be named {yourname}.zip, and should itself contain the full-stack-recruitment-test project folder with your submission.
 
-Use the built-in continuous integration in GitLab.
+- The zip file should contain the [FOLLOW-UP.md](./FOLLOW-UP.md) file with answers to the follow-up questions.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+- The zip file should **not** include the `node_modules` folder.
 
-***
+---
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Inspiration for the test format taken with ❤️ from [JustEat's recruitment test](https://github.com/justeat/JustEat.RecruitmentTest).
