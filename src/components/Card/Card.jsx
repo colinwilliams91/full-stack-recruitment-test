@@ -123,8 +123,8 @@ const Card = ({ trip, leg1, leg2, legs, itinerary }) => {
         </div>
         <div id="total-trip-box" className={getClassName('Total')}>
             <div style={{ paddingTop: '1rem' }}>
-              {leg1Time &&
-                leg1Time
+              {leg2Time &&
+                leg2Time
               }
               <div>
                 {leg2Info.stops > 0
