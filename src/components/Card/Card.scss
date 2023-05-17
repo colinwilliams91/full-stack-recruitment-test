@@ -2,15 +2,11 @@
 
 .Parent {
   height: auto;
-  // display: grid; // <-- default to block
-  // grid-template-rows: 1fr 1fr 1fr;
   border-radius: $bpk-border-radius-sm !important;
   padding: 1rem;
   margin-bottom: 1rem;
-  // @include bpk-border-sm($bpk-color-sky-gray-tint-04);
-  // @include bpk-box-shadow-sm;
+
   @include bpk-card;
-  // @include bpk-breakpoint-mobile;
 
   &__top-row {
     display: flex;
@@ -53,4 +49,30 @@
 
 .Leg1-start {
   display: flex;
+}
+
+.Agent {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.Total {
+  display: flex;
+  width: 97px;
+  height: 42px;
+  text-align: end;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.Time {
+  color: black;
+  font-weight: bold;
+}
+
+.Airport {
+  color: grey;
+  font-weight: bolder;
 }

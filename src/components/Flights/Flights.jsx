@@ -4,8 +4,6 @@ import Card from '../Card/Card';
 
 import STYLES from './Flights.scss';
 
-import { fetchItineraries } from '../../utilities';
-
 const getClassName = (className) => STYLES[className] || 'UNKNOWN';
 
 const Flights = () => {
@@ -31,10 +29,6 @@ const Flights = () => {
         .catch(error => console.error("error Fetch flights.json", error));
     })();
   }, []) // <-- empty dependencies array for componentMount life-cycle event
-
-  // console.log('trips:', trips);
-  // console.log('itineraries', itineraries);
-  // console.log('legs', legs);
 
   return (
     <>
