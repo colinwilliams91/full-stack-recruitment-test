@@ -1,0 +1,56 @@
+@import '~bpk-mixins';
+
+.Parent {
+  height: auto;
+  // display: grid; // <-- default to block
+  // grid-template-rows: 1fr 1fr 1fr;
+  border-radius: $bpk-border-radius-sm !important;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  // @include bpk-border-sm($bpk-color-sky-gray-tint-04);
+  // @include bpk-box-shadow-sm;
+  @include bpk-card;
+  // @include bpk-breakpoint-mobile;
+
+  &__top-row {
+    display: flex;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__middle-row {
+    display: flex;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__bottom-row {
+    display: flex;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.Button {
+  @include bpk-button;
+  height: $bpk-button-height;
+  border-radius: 0.3rem;
+}
+
+.Logo {
+  display: flex;
+  justify-content: center;
+
+  &__airline-image {
+    height: 2.5rem;
+    margin-right: .25rem;
+    vertical-align: top;
+  }
+}
+
+.Leg1-start {
+  display: flex;
+}
