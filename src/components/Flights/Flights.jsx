@@ -32,15 +32,15 @@ const Flights = () => {
     })();
   }, []) // <-- empty dependencies array for componentMount life-cycle event
 
-  console.log('trips:', trips);
-  console.log('itineraries', itineraries);
-  console.log('legs', legs);
+  // console.log('trips:', trips);
+  // console.log('itineraries', itineraries);
+  // console.log('legs', legs);
 
   return (
     <>
       {trips&&
         legs.map((trip, i) => {
-          return <Card key={i + trip.id} trip={trip} leg1={trips[i]} leg2={trips[i + 1]} />
+          return <Card key={i + trip.id} trip={trip} leg1={trips[i]} leg2={trips[i + 1]} legs={legs} itinerary={itineraries[i]}/>
         })
       }
     </>
